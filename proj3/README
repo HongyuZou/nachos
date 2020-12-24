@@ -1,0 +1,22 @@
+Group Members: Hongyu Zou, Guanyi Su, Zhanchong Deng
+
+what code we wrote:
+Based on the implementation of proj2, we made the following changes:
+
+1. initialize all page entry as invalid entry
+2. when there is a page fault, determine whether to page in from evicted page or just bring a new page
+3. If we need to evict a page, then we use clock algorithm to evict the page. If its dirty, we write into the swap file.
+4. After we get the page we need, we want to know how to init this page
+    a. If it's a new stack page, then 0 init
+    b. If it's a page that is swapped out before, page in from swap file
+    c. If it's a coff page, then load from executable
+5. We also need to know where to pin/unpin page, everytime we use a page we pin them. If all page pinned, we add process to pinnedCV
+6. In read/write, we also set the used bit.
+7. In order to synchronize, we just use a blocking lock on page fault and read/write. Which is based on write-up instruction.
+
+How well it works:
+We throughly tested it with proj2 test and swap4.c swap5.c concurrently running. It worked fine.
+
+Contribution:
+We always meet together via zoom to write out project, Hongyu is the main driver. Guanyi and Zhanchong are responsible for
+giving debugging advice and testing the code. 

@@ -1,0 +1,23 @@
+Group Member: Zhanchong Deng, Guanyi Su, Hongyu Zou
+
+For Alarm.java, we make use of a waiting queue protected by interrupts to implement sleeping thread feature. 
+We test the class by making use of Alarm with multiple threads in different order and waitUtil() with different time.
+
+For Kthread.join, we make use of interrupts and sleep() to implement the parent thread "waiting" feature.
+And children will wake up parent in finish(). 
+We test the method thoroughly by making each test for each scenario mentioned in the write up.
+
+For Condition2.java, we implement a protected queue of threads to achieve the conditional lock feature. 
+For the extra "sleepFor" feature, we implement cancel in Alarm and added some conditions in wake to avoid thread waking twice. 
+We test the method thoroughly by making each test for each scenario mentioned in the write up.
+
+For GameMatch.java, in addition to locks for match num & locks for # ppl in waiting room for each level. 
+We also implemented an array of "saved match num" as a indirection method, so that match number is not mixed up between different matches. 
+We test the method thoroughly by making each test for each scenario mentioned in the write up.
+
+For EC, we make use of lock to block other calling threads to implement the get(). 
+And pass result to varaible after future() finishes for other thread to acquire it.
+
+They all work well, as expected.
+
+As for our contribution, we usually use zoom and write code together, synchronously (unlike these threads). Typically we have one person to be the driver, with the other two guys in the background providing suggestions. We switch the driver every time.
